@@ -52,6 +52,7 @@ async function fetchCityData(query){
         data.forEach((city)=> {
             const p = document.createElement('p');
             p.textContent = `${city.name} , ${city.country}`;
+            p.className = 'cityDiv'
             resultGeoDiv.appendChild(p);
         });
 

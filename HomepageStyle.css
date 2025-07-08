@@ -1,0 +1,21 @@
+*{
+    background-color: rgb(27, 27, 106);
+}
+
+#firstDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    gap: 40px;
+}
+
+#weatherAppDiv{
+    background-color: rgb(49, 49, 228);
+    display: flex;
+    width: 700px;
+    height: 400px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px 2px rgb(32, 31, 31); 
+}
+
