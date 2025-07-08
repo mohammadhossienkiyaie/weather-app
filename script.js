@@ -34,10 +34,41 @@ geoBtn.addEventListener('click' , async function() {
         }
 })
 
+let deBounceTimeout ;
+
+async function fetchCityData(query){
+    resultGeoDiv.innerHTML = '<p>searching...</p>';
+    const fullSearchUrl = `${SEARCH_API_URL}?key=${API_KEY}&q=${query}`;
+    try{
+        const response = await fetch(fullSearchUrl);
+        if(!response.ok)throw new Error (`falied to process`);
+        const data = await response.json();
+        resultGeoDiv.innerHTML= '';
+        if(data.length === 0 ){
+            resultGeoDiv.innerHTML = '<p>city not found !</p>';
+            return ;
+        }
+
+        data.forEach((city)=> {
+            const p = document.createElement('p');
+            p.textContent = `${city.name} , ${city.country}`;
+            resultGeoDiv.appendChild(p);
+        });
+
+    }catch(error){
+        console.log("failed to search city ! " , error);
+    }
+}
+
 searchGeoInput.addEventListener('input' , function(){
-    let liveInputValue = document.getElementById('searchInput');
-    if(liveInputValue === ''){
-        alert('please Enter a city for weather Data');
+    clearTimeout(deBounceTimeout)
+    let liveINputvalue = searchGeoInput.value.trim();
+    if(liveINputvalue.length  === 0){
+        resultGeoDiv.innerHTML = '';
         return;
     }
-})
+
+    deBounceTimeout = setTimeout(()=>{
+        fetchCityData(liveINputvalue);
+    },500); 
+});
