@@ -7,69 +7,38 @@
 const searchGeoInput = document.getElementById('searchInput');
 const geoBtn = document.getElementById('searchBtn');
 const resultGeoDiv = document.getElementById('searchResultDiv');
+const weatherDiv = document.getElementById('weatherAppDiv');
 
 const API_KEY = '78a4589129334b0fab6101418250707' ;
 const SEARCH_API_URL = 'https://api.weatherapi.com/v1/search.json';
 const WEATHER_API_URL = 'https://api.weatherapi.com/v1/current.json';
 
-geoBtn.addEventListener('click' , async function() {
-    let searchValue = null ;
-    const searchGeoValue = searchGeoInput.value.trim() ;
-    if(searchGeoValue === ""){
-        alert('Enter a country name ');
-        return ;
-    }else{
-    searchValue = searchGeoValue ;
-    console.log(searchValue);  
-    }
-     const GEO_URL = `${SEARCH_API_URL}?key=${API_KEY}&q=${encodeURIComponent(searchValue)}`;
-        try{
-            const response = await fetch(GEO_URL);
-            const data = await response.json();
-            console.log('city result data :  ' , data);
-            console.log("city result data:", JSON.stringify(data, null, 2));
 
-        }catch(error){
-            console.error('failed to get data :' , error);
-        }
-})
-
-let deBounceTimeout ;
-
-async function fetchCityData(query){
-    resultGeoDiv.innerHTML = '<p>searching...</p>';
-    const fullSearchUrl = `${SEARCH_API_URL}?key=${API_KEY}&q=${query}`;
-    try{
-        const response = await fetch(fullSearchUrl);
-        if(!response.ok)throw new Error (`falied to process`);
-        const data = await response.json();
-        resultGeoDiv.innerHTML= '';
-        if(data.length === 0 ){
-            resultGeoDiv.innerHTML = '<p>city not found !</p>';
-            return ;
-        }
-
-        data.forEach((city)=> {
-            const p = document.createElement('p');
-            p.textContent = `${city.name} , ${city.country}`;
-            p.className = 'cityDiv'
-            resultGeoDiv.appendChild(p);
-        });
-
-    }catch(error){
-        console.log("failed to search city ! " , error);
-    }
+const selectedCity = localStorage.getItem('selectedCity');
+if(selectedCity){
+    fetchWeatherForCity(selectedCity);
+    localStorage.removeItem('selectedCity');
 }
 
-searchGeoInput.addEventListener('input' , function(){
-    clearTimeout(deBounceTimeout)
-    let liveINputvalue = searchGeoInput.value.trim();
-    if(liveINputvalue.length  === 0){
-        resultGeoDiv.innerHTML = '';
-        return;
-    }
+async function fetchWeatherForCity(cityName){
+    const fullWeatherUrl = `${WEATHER_API_URL}?key=${API_KEY}&q=${cityName}&aqi=no`;
+    weatherDiv.innerHTML = "loading Weather Data...";
+    try{
+        const response = await fetch(fullWeatherUrl);
+        if(!response.ok){
+            const dataError = await response.json();
+            throw new Error('failed to get Data');
+        }
+        const data = await response.json();
+        console.log('data information :' , data);
 
-    deBounceTimeout = setTimeout(()=>{
-        fetchCityData(liveINputvalue);
-    },500); 
-});
+        const cityDisplayName = data.location.name;
+        const countryName = data.location.country;
+        const temCelsius = data.current.temp_c;
+        const feelsLikeCelsius = data.current.feelsLike_c;
+        const windSpeed = data.current.wind_Kph; 
+
+    }catch{
+        console.Error('failed to get data from api ');
+    }
+}

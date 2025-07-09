@@ -1,14 +1,22 @@
+*{
+    background-color: rgb(80, 76, 76);
+}
+#mainDiv{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 #searchDiv{
     display: flex ;
     flex-direction: column;
     width: 280px;
-    height: 400px;
+    height: 450px;
     background-color: rgb(44, 43, 43);
     box-shadow : 0px 0px 15px 3px rgb(32, 31, 31);
     border-radius: 15px;
 }
 #searchResultDiv{
-    
     display: flex;
     flex-direction: column;
     background-color: inherit;
@@ -41,6 +49,7 @@
     color: white;
     border: 1px solid rgb(59, 57, 57);
     border-radius: inherit;
+    cursor: pointer;
 }
 #searchInput:focus{
     outline: none;
@@ -48,9 +57,16 @@
 .cityDiv{
     height:30px;
     width: 400;
-    border :1px solid white ;
+    border :1px solid rgb(59, 57, 57);
     margin: 3px;
     border-radius: 10px;
     padding: 5px;
-    color: white ;
+    background-color: rgb(59, 57, 57);
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.cityDiv:hover{
+    border: 1px solid white;
 }
