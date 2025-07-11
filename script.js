@@ -8,6 +8,12 @@ const searchGeoInput = document.getElementById('searchInput');
 const geoBtn = document.getElementById('searchBtn');
 const resultGeoDiv = document.getElementById('searchResultDiv');
 const weatherDiv = document.getElementById('weatherAppDiv');
+const mainWeather = document.getElementById('WeatherBox1');
+const feelsLikeBox = document.getElementById('feelsLikeDataBox');
+const windSpeedBox = document.getElementById('windSpeedDataBox');
+const humidityBox = document.getElementById('humidityDataBox');
+const conditionBox = document.getElementById('conditionDataBox');
+const cityInfo = document.getElementById('cityInfo');
 
 const API_KEY = '78a4589129334b0fab6101418250707' ;
 const SEARCH_API_URL = 'https://api.weatherapi.com/v1/search.json';
@@ -22,7 +28,7 @@ if(selectedCity){
 
 async function fetchWeatherForCity(cityName){
     const fullWeatherUrl = `${WEATHER_API_URL}?key=${API_KEY}&q=${cityName}&aqi=no`;
-    weatherDiv.innerHTML = "loading Weather Data...";
+
     try{
         const response = await fetch(fullWeatherUrl);
         if(!response.ok){
@@ -30,15 +36,23 @@ async function fetchWeatherForCity(cityName){
             throw new Error('failed to get Data');
         }
         const data = await response.json();
-        console.log('data information :' , data);
-
+    
         const cityDisplayName = data.location.name;
         const countryName = data.location.country;
         const temCelsius = data.current.temp_c;
-        const feelsLikeCelsius = data.current.feelsLike_c;
-        const windSpeed = data.current.wind_Kph; 
+        const feelsLikeCelsius = data.current.feelslike_c;
+        const windSpeed = data.current.wind_kph;
+        const humidity = data.current.humidity;
+        const weatherConditionText = data.current.condition.text;
+        const weathericon = data.current.condition.icon ;
 
+        console.log('city name : ' , cityDisplayName);
+        
+        if(cityInfo){
+            cityInfo.textContent = cityDisplayName ;   
+        }
+        
     }catch{
-        console.Error('failed to get data from api ');
+        console.error('failed to get data from api ' , error);
     }
 }

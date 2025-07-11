@@ -13,9 +13,49 @@
 #weatherAppDiv{
     background-color: rgb(49, 49, 228);
     display: flex;
-    width: 700px;
-    height: 400px;
+    width: 800px;
+    height: 500px;
     border-radius: 15px;
     box-shadow: 0px 0px 15px 2px rgb(32, 31, 31); 
+    gap: 30px;
+    align-items: center;
 }
 
+#WeatherBox1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 0;
+    height: 450px;
+    width: 300px;
+    background-color: white;
+    border-radius: 20px;
+    margin-left: 20px;   
+}
+#WeatherBox2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    height: 400px;
+    background-color: inherit;
+    align-content: center;
+}
+
+.weatherBoxChild{
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+    background-color: whitesmoke;
+}
+.weatherpic{
+    width: 120px;
+    height: 120px;
+    background-color: inherit;
+    margin-bottom: 30px;
+}
+.cityName{
+    background-color: inherit;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    margin-bottom: 0;
+}
