@@ -11,15 +11,26 @@
         <div id ="weatherAppDiv">
             <div id="WeatherBox1">
                 <p class="cityName" id="cityInfo"></p>
-                <img src="img/rainy-icon.svg" alt="rainy-icon" class="weatherpic">
-                <p></p>
+                <div  alt="waetherIcon" class="weatherpic" id="weatherpic"></div>
+                <div id="weatherTempDiv"></div>
+                <div  id="weatherConditionText" class="weatherConditionText"></div>
+                <div class="forcastWeatherBox"></div>
             </div>
-            <div id="WeatherBox2">
-                <div id="feelsLikeDataBox" class="weatherBoxChild"></div>
-                <div id="windSpeedDataBox" class="weatherBoxChild"></div>
-                <div id="humidityDataBox" class="weatherBoxChild"></div>
-                <div id="conditionDataBox" class="weatherBoxChild"></div>
+            <div class="weatherBox2">
+                <div class="weatherDivsquare , squareDiv" id="windSpeedDiv">
+                    <p><strong class="squareDivText">windSpeed</strong></p>
+                    <img src="img/windSpeed.svg" alt="windSpeedicon" class="squareDivIcon">
+                </div>
+                <div class="weatherDivsquare , squareDiv" id="feelsLike">
+                    <p><strong class="squareDivText">feelsLike</strong></p>
+                    <img src="img/feelsLike.svg" alt="feelsLikeicon" class="squareDivIcon">
+                </div>
+                <div class="weatherDivsquare , squareDiv" id="humidityBox">
+                    <p><strong class="squareDivText">humidity</strong></p>
+                    <img src="img/humidity.svg" alt="humidityicon" class="squareDivIcon">
+                </div>
             </div>
+
         </div>
 
     </div>
