@@ -1,9 +1,13 @@
-*{
-    background-color: rgb(27, 27, 106);
+* {
+    background-color: rgb(87, 142, 236);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-#firstDiv{
+#firstDiv {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,76 +15,93 @@
     gap: 40px;
 }
 
-#weatherAppDiv{
+#weatherAppDiv {
     display: flex;
     justify-content: flex-start;
-    width:700px;
+    width: 700px;
     height: 500px;
     align-items: start;
     position: relative;
     margin-bottom: 100px;
 }
 
-#WeatherBox1{
+#WeatherBox1 {
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-grow: 0;
     height: 300px;
     width: 440px;
-    background-color: white;
+    background-color: inherit;
     border-radius: 20px;
     margin-left: 20px;
-    margin-top: 30px;  
-    border : 1px solid rgba(255, 255, 255, 0.4);
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
     border-right-color: rgba(255, 255, 255, 0.2);
     border-bottom-color: rgba(255, 255, 255, 0.2);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
     text-align: center;
     color: #333;
 }
-.forcastWeatherBox{
+
+.forcastWeatherBox {
     display: flex;
-    align-items: start;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
     margin-top: 30px;
     width: 200px;
     height: 300px;
-    background-color: white;
     position: absolute;
     right: 0px;
     top: 0px;
     border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-right-color: rgba(255, 255, 255, 0.2);
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
 }
 
-.weatherBoxChild{
+.weatherBoxChild {
     width: 200px;
     height: 200px;
     border-radius: 15px;
-    background-color: whitesmoke;
+    background-color: inherit;
 }
-.weatherPicBox1{
+
+.weatherPicBox1 {
     width: 120px;
     height: 120px;
     background-color: rgba(0, 123, 255, 0.2);
     border-radius: 20px;
     margin: 0px;
 }
-.cityName{
+
+.cityName {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 20px;
     margin: 0px;
 }
-.cityName , .weatherpic , .weatherPicBox1{
-    background-color: white
+
+.cityName,
+.weatherpic,
+.weatherPicBox1 {
+    background-color: inherit;
 }
 
-.weatherDivsquare{
+.weatherDivsquare {
     width: 200px;
     height: 200px;
-    background-color: white;
     border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-right-color: rgba(255, 255, 255, 0.2);
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
 }
-.weatherBox2{
+
+.weatherBox2 {
     display: flex;
     position: absolute;
     gap: 40px;
@@ -89,10 +110,15 @@
     background-color: inherit;
     justify-content: center;
 }
-.cityInfo , .weatherTempText{
+
+.cityInfo,
+.weatherTempText {
     font-weight: bold;
+    background-color: inherit;
 }
-.cityInfo , .conditionText{
+
+.cityInfo,
+.conditionText {
     font-size: 25px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: #333;
@@ -100,48 +126,74 @@
     margin: 0px;
     margin-top: 10px;
     margin-bottom: 20px;
+    background-color: inherit;
 }
-.conditionText{
+
+.conditionText {
     font-size: 23px !important;
     background-color: inherit;
     margin-top: 10px;
 }
-#weatherConditionText{
+
+#weatherConditionText {
     background-color: inherit;
 }
-.squareBox{
+
+.squareBox {
     background-color: inherit;
     text-align: center;
     color: #333;
     font-size: 16px;
     font-weight: 600;
 }
-.weatherTempText{
+
+.weatherTempText {
     margin: 0px;
     font-size: 30px;
-    background-color: white;
-}
-#weatherTempDiv{
     background-color: inherit;
 }
-.squareDivIcon{
+
+#weatherTempDiv {
+    background-color: inherit;
+}
+
+.squareDivIcon {
     display: flex;
     background-color: inherit;
     width: 100px;
     height: 100px;
 }
-.squareDiv{
+
+.squareDiv {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
 }
-p{
+
+p {
     margin: 0px;
     margin-top: 10px;
     margin-bottom: 10px;
     color: #333;
 }
-.squareDivText{
-    background-color: white;
+
+.squareDivText {
+    background-color: inherit;
 }
+
+.tomorrowCondition {
+    background-color: inherit;
+    color: #333;
+    font-size: 18px;
+}
+
+.weatherBoxTitle {
+    background-color: inherit;
+    font-size: 18px;
+}
+
+#cityInfo {
+    background-color: inherit;
+}
+
