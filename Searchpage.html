@@ -1,28 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>searchPage</title>
     <link rel="stylesheet" href="SearchpageStyle.css">
 </head>
+
 <body>
+    <p class="mainText">weather App</p>
     <div id="mainDiv">
         <div id="searchDiv">
-        <div id="searchResultDiv"></div>
-        <div id="inputDiv0">
-            <div id="inputDiv1">
-                <input type="text" name="" id="searchInput">
-                <button type="submit" id="searchBtn">Submit</button>
+            <div id="searchResultDiv"></div>
+            <div id="inputDiv0">
+                <div id="inputDiv1">
+                    <input type="text" name="" id="searchInput">
+                    <button type="submit" id="searchBtn">Submit</button>
+                </div>
             </div>
-        <div>
-            <button>
-                img
-            </button>
-        </div>
         </div>
     </div>
+    <div>
+        <button id="infoButton">
+            <img src="/img/popup.svg" alt="tutorialIcon" class="tutorialIcon">
+        </button>
+    </div>
+    <div class="popupBackground" id="popupBackgroundDiv">
+        <div class="popup" id="popupDiv">
+            <p>To use the app, first find the city you want by searching for it, and then click on the weather icon to
+                see the weather in the selected city.</p>
+        </div>
     </div>
     <script src="searchPageScript.js"></script>
 </body>
-</html> 
+
+</html>
