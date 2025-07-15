@@ -45,7 +45,7 @@ searchGeoInput.addEventListener('input', function () {
 });
 
 async function fetchCityData(query) {
-    resultGeoDiv.innerHTML = '<p>searching...</p>';
+    resultGeoDiv.innerHTML = '<p class="loadingList">searching...</p>';
     const fullSearchUrl = `${SEARCH_API_URL}?key=${API_KEY}&q=${query}`;
     try {
         const response = await fetch(fullSearchUrl);
@@ -74,13 +74,9 @@ async function fetchCityData(query) {
     }
 }
 
-// info button 
-const popupBackground = document.getElementById('popupBackgroundDiv');
-const popupDiv = document.getElementById('popupDiv');
-const infoButton = document.getElementById('infoButton');
+const tutorialButton = document.getElementById('infoButton');
+const tutorialPopup = document.getElementById('infoDiv');
 
-infoButton.addEventListener('click', () => {
-    popupDiv.classList.toggle('popupActive');
-    popupBackground.classList.toggle('blurredContent');
-    console.log(popupBackground);
-});
+tutorialButton.addEventListener('click' , ()=>{
+    tutorialPopup.classList.toggle('visibleDiv');
+})
